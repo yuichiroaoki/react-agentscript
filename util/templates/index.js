@@ -9,5 +9,5 @@ module.exports = [
   componentTypes,
   componentStories,
   componentTests,
-  componentStyles
+  componentStyles,
 ];

@@ -1,0 +1,16 @@
+# directories
+build/
+cache/
+coverage/
+dist/
+lib/
+node_modules/
+typechain/
+
+# files
+*.env
+*.log
+*.tsbuildinfo
+.pnp.*
+coverage.json
+npm-debug.log*

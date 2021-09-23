@@ -25,7 +25,7 @@ describe("TestComponent", () => {
 
   it("should render content correctly", () => {
     const { getByTestId } = renderComponent({
-      content: <div data-testid="some-test-content">I am test content</div>
+      content: <div data-testid="some-test-content">I am test content</div>,
     });
 
     expect(

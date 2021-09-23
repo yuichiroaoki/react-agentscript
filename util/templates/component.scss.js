@@ -9,5 +9,5 @@ module.exports = (componentName) => ({
   color: $harvey-green;
 }
 `,
-  extension: `.scss`
+  extension: `.scss`,
 });
