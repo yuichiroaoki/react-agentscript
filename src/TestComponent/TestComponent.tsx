@@ -3,7 +3,7 @@ import React from "react";
 import { TestComponentProps } from "./TestComponent.types";
 
 import "./TestComponent.scss";
-import AgentscriptComponent from "./Agentscript";
+import Agentscript from "./Agentscript";
 
 const TestComponent: React.FC<TestComponentProps> = ({ heading, content }) => {
   return (
@@ -12,7 +12,7 @@ const TestComponent: React.FC<TestComponentProps> = ({ heading, content }) => {
         {heading}
       </h1>
       <div data-testid="test-component__content">{content}</div>
-      <AgentscriptComponent />
+      <Agentscript width={800} height={800} model={null}/>
     </div>
   )
 };

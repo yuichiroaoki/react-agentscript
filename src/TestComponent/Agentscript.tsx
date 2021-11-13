@@ -5,7 +5,16 @@ import Animator from '../agentscript/Animator.js'
 import Model from '../models/AntsModel'
 import React from 'react'
 
-export default function AgentscriptComponent() {
+interface AgentscriptProps {
+	width: number;
+	height: number;
+	model: Model;
+}
+
+export default function Agentscript({
+	width, height, model
+}: AgentscriptProps
+) {
 
 	const agentSetup = async () => {
 
@@ -41,7 +50,7 @@ export default function AgentscriptComponent() {
 		const view = new TwoDraw(model, {
 			div: 'modelDiv',
 			useSprites: true, // ant shape difficult to draw
-			width: 700,
+			width: width,
 			drawOptions,
 		})
 
