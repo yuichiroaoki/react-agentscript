@@ -10,7 +10,14 @@ export default {
 
 export const WithBar = () => <Agentscript 
         view={
-          { width: 800, height: 600 }
+          { 
+              width: 800, height: 600,
+              drawOptions: {
+                  turtlesColor: "white",
+                  turtlesSize: 5,
+                  turtlesShape: "bug"
+              }
+            }
         }
         animation={{
           step: 50,
