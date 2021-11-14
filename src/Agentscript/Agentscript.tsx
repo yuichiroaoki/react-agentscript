@@ -1,7 +1,7 @@
 import React from "react";
 
-import TwoDraw from '../agentscript/TwoDraw.js'
-import Animator from '../agentscript/Animator.js'
+import TwoDraw from './lib/agentscript/TwoDraw'
+import Animator from './lib/agentscript/Animator'
 // import Color from '../agentscript/Color'
 // import ColorMap from '../agentscript/ColorMap'
 
