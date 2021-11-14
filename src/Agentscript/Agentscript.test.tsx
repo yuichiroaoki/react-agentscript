@@ -5,23 +5,34 @@ import { render } from "@testing-library/react";
 import Agentscript from "./Agentscript";
 import { AgentscriptProps } from "./Agentscript.types";
 
+import Model from '../models/AntsModel'
+
 describe("Test Component", () => {
   let props: AgentscriptProps;
+  let view = {
+    width: 800, height: 600,
+    drawOptions: {
+      turtlesColor: "white",
+      turtlesSize: 5,
+      turtlesShape: "bug"
+    }
+  }
+
+  let animation = {
+    step: 50,
+    fps: 30,
+  }
 
   beforeEach(() => {
     props = {
-      foo: "bar"
+      view: view,
+      animation: animation,
+      Model: Model
     };
   });
 
-  const renderComponent = () => render(<Agentscript {...props} />);
 
-  it("should render foo text correctly", () => {
-    props.foo = "harvey was here";
-    const { getByTestId } = renderComponent();
-
-    const component = getByTestId("Agentscript");
-
-    expect(component).toHaveTextContent("harvey was here");
+  it('renders without crashing', () => {
+    () => render(<Agentscript {...props} />);
   });
 });

@@ -1,6 +1,6 @@
-import World from "../agentscript/World.js";
-import Model from "../agentscript/Model.js";
-import * as util from "../agentscript/utils.js";
+import World from "../Agentscript/lib/agentscript/World";
+import Model from "../Agentscript/lib/agentscript/Model";
+import * as util from "../Agentscript/lib/agentscript/utils";
 
 export default class AntsModel extends Model {
   population = 255;

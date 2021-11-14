@@ -18,8 +18,9 @@
     "build",
     "storybook-static",
     "src/**/*.stories.tsx",
-    "src/agentscript",
-    "src/vendor",
+    "src/Agentscript/lib/agentscript",
+    "src/models",
+    "src/Agentscript/lib/vendor",
     "src/**/*.test.tsx"
   ]
 }
