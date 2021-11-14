@@ -2,17 +2,26 @@ import TwoDraw from '../agentscript/TwoDraw.js'
 import Animator from '../agentscript/Animator.js'
 // import Color from '../agentscript/Color'
 // import ColorMap from '../agentscript/ColorMap'
-import Model from '../models/AntsModel'
 import React from 'react'
 
-interface AgentscriptProps {
+interface IView {
 	width: number;
 	height: number;
-	model: Model;
+}
+
+interface IAnimation {
+	step: number;
+	fps: number;
+}
+
+interface AgentscriptProps {
+	view: IView;
+	animation: IAnimation;
+	Model: any;
 }
 
 export default function Agentscript({
-	width, height, model
+	view, animation, Model
 }: AgentscriptProps
 ) {
 
@@ -47,20 +56,23 @@ export default function Agentscript({
 		await model.startup()
 		model.setup()
 
-		const view = new TwoDraw(model, {
+
+		const { width } = view;
+		const twoDraw = new TwoDraw(model, {
 			div: 'modelDiv',
 			useSprites: true, // ant shape difficult to draw
 			width: width,
 			drawOptions,
 		})
 
+		const { step, fps } = animation;
 		const anim = new Animator(
 		  () => {
 		    model.step()
-		    view.draw()
+		    twoDraw.draw()
 		  },
-		  50, // run 500 steps
-		  30 // 30 fps
+		  step, 
+		  fps
 		)
 	}
 	agentSetup()

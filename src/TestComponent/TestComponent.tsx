@@ -5,6 +5,8 @@ import { TestComponentProps } from "./TestComponent.types";
 import "./TestComponent.scss";
 import Agentscript from "./Agentscript";
 
+import Model from '../models/AntsModel'
+
 const TestComponent: React.FC<TestComponentProps> = ({ heading, content }) => {
   return (
     <div data-testid="test-component" className="test-component">
@@ -12,7 +14,16 @@ const TestComponent: React.FC<TestComponentProps> = ({ heading, content }) => {
         {heading}
       </h1>
       <div data-testid="test-component__content">{content}</div>
-      <Agentscript width={800} height={800} model={null}/>
+      <Agentscript
+        view={
+          { width: 800, height: 600 }
+        }
+        animation={{
+          step: 50,
+          fps: 30,
+        }}
+        Model={Model}
+      />
     </div>
   )
 };
