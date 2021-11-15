@@ -183,7 +183,7 @@ export default class AgentSet extends AgentArray {
     // Note removeAgent(agent) different than remove(agent) which
     // simply removes the agent from it's array
 
-    if (o.id != -1) {
+    if (o.id !== -1) {
       // Remove me from my baseSet
       if (this.isBreedSet()) this.baseSet.remove(o, "id");
       // Remove me from my set.
