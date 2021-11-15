@@ -1,4 +1,4 @@
-interface IDrawOptions {
+export interface IDrawOptions {
   patchesColor?: string | ((p: any) => void);
   initPatches?: (p: any) => void;
   turtlesColor?: string | ((t: any) => void);

@@ -4,8 +4,6 @@ import { TestComponentProps } from "./TestComponent.types";
 
 import "./TestComponent.scss";
 
-import Model from '../models/AntsModel'
-
 const TestComponent: React.FC<TestComponentProps> = ({ heading, content }) => {
   return (
     <div data-testid="test-component" className="test-component">

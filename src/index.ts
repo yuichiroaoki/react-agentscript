@@ -1,3 +1,4 @@
 import TestComponent from "./TestComponent";
+import Agentscript from "./Agentscript";
 
-export { TestComponent };
+export { TestComponent, Agentscript };

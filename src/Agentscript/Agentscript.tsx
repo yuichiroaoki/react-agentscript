@@ -10,10 +10,9 @@ import { AgentscriptProps } from "./Agentscript.types";
 import "./Agentscript.scss";
 
 
-export default function Agentscript({
+const Agentscript: React.FC<AgentscriptProps> = ({ 
 	view, animation, Model
-}: AgentscriptProps
-) {
+}) => {
 	useEffect(() => {
 		const agentSetup = async () => {
 			const model = new Model()
@@ -45,3 +44,5 @@ export default function Agentscript({
 		<div id="modelDiv"></div>
 	)
 }
+
+export default Agentscript;
