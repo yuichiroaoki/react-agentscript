@@ -13,4 +13,6 @@ module.exports = {
       "identity-obj-proxy",
     "\\.(css|less|scss|sass)$": "identity-obj-proxy",
   },
+  preset: "ts-jest/presets/js-with-ts",
+  transformIgnorePatterns: ["node_modules/(?!(bootstrap-vue)/)"],
 };

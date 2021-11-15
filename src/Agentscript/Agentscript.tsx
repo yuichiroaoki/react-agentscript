@@ -2,8 +2,6 @@ import React, { useEffect } from "react";
 
 import TwoDraw from './lib/agentscript/TwoDraw'
 import Animator from './lib/agentscript/Animator'
-// import Color from '../agentscript/Color'
-// import ColorMap from '../agentscript/ColorMap'
 
 import { AgentscriptProps } from "./Agentscript.types";
 
