@@ -1,7 +1,7 @@
 // Generated with util/create-component.js
 import React from "react";
 import Agentscript from "./Agentscript";
-import Animator from './lib/agentscript/Animator'
+import { Animator } from "ts-agent";
 import Model from '../models/AntsModel'
 
 export default {
@@ -9,7 +9,7 @@ export default {
 };
 
 export const WithBar = () => {
-  const [anim, setAnim] = React.useState<Animator | undefined>();
+  const [anim, setAnim] = React.useState<typeof Animator | undefined>();
   return (
     <>
     <Agentscript

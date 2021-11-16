@@ -1,4 +1,4 @@
-import Animator from "./lib/agentscript/Animator";
+import { Animator } from "ts-agent";
 
 export interface IDrawOptions {
   patchesColor?: string | ((p: any) => void);
