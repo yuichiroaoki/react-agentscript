@@ -20,7 +20,6 @@
     "storybook-static",
     "src/**/*.stories.tsx",
     "src/models",
-    "src/Agentscript/lib",
     "src/**/*.test.tsx"
   ]
 }

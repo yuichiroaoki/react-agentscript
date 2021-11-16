@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 
-import TwoDraw from './lib/agentscript/TwoDraw'
-
-import { Animator } from "ts-agent";
+import { Animator, TwoDraw } from "ts-agent";
 import { AgentscriptProps } from "./Agentscript.types";
 
 import "./Agentscript.scss";
