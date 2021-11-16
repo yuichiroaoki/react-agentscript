@@ -1,3 +1,5 @@
+import Animator from "./lib/agentscript/Animator";
+
 export interface IDrawOptions {
   patchesColor?: string | ((p: any) => void);
   initPatches?: (p: any) => void;
@@ -29,4 +31,6 @@ export interface AgentscriptProps {
   view: IView;
   animation: IAnimation;
   Model: any;
+  anim: any;
+  setAnim: React.Dispatch<React.SetStateAction<Animator>>;
 }

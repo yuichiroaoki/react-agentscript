@@ -8,8 +8,8 @@ import { AgentscriptProps } from "./Agentscript.types";
 import "./Agentscript.scss";
 
 
-const Agentscript: React.FC<AgentscriptProps> = ({ 
-	view, animation, Model
+const Agentscript: React.FC<AgentscriptProps> = ({
+	view, animation, Model, anim, setAnim
 }) => {
 	useEffect(() => {
 		const agentSetup = async () => {
@@ -26,7 +26,7 @@ const Agentscript: React.FC<AgentscriptProps> = ({
 			})
 
 			const { step, fps } = animation;
-			const anim = new Animator(
+			const newAnim = new Animator(
 				() => {
 					model.step()
 					twoDraw.draw()
@@ -34,6 +34,8 @@ const Agentscript: React.FC<AgentscriptProps> = ({
 				step,
 				fps
 			)
+			setAnim(newAnim)
+			console.log(anim)
 		}
 		agentSetup()
 	}, [])

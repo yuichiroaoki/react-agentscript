@@ -1,7 +1,7 @@
 // Generated with util/create-component.js
 import React from "react";
 import Agentscript from "./Agentscript";
-
+import Animator from './lib/agentscript/Animator'
 import Model from '../models/AntsModel'
 
 export default {
@@ -9,7 +9,9 @@ export default {
 };
 
 export const WithBar = () => {
+  const [anim, setAnim] = React.useState<Animator | undefined>();
   return (
+    <>
     <Agentscript
       view={
         {
@@ -27,6 +29,12 @@ export const WithBar = () => {
         fps: 30,
       }}
       Model={Model}
+      anim={anim}
+      setAnim={setAnim}
     />
+    <input type="button" value="reset" onClick={() => {anim.reset(); }}/>
+    <input type="button" value="toggle" onClick={() => {anim.toggle(); }}/>
+    <input type="button" value="once" onClick={() => {anim.once(); }}/>
+    </>
   )
 }
