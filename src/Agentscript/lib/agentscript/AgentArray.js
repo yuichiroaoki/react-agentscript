@@ -218,7 +218,7 @@ export default class AgentArray extends Array {
     for (let i = 0; i < Math.min(length, this.length); i++) {
       fcn(this[i], i, this);
     }
-    if (length != this.length) {
+    if (length !== this.length) {
       const name = this.name || this.constructor.name;
       const direction = this.length < length ? "decreasing" : "increasing";
       util.warn(`AgentArray.ask array mutation: ${name}: ${direction}`);

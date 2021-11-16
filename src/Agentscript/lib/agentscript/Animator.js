@@ -23,7 +23,7 @@ export default class Animator {
   }
 
   isRunning() {
-    return this.timeoutID != null;
+    return this.timeoutID !== null;
   }
 
   // startStats() {

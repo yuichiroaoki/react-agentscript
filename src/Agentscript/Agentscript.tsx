@@ -1,73 +1,48 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-import TwoDraw from '../agentscript/TwoDraw.js'
-import Animator from '../agentscript/Animator.js'
-// import Color from '../agentscript/Color'
-// import ColorMap from '../agentscript/ColorMap'
+import TwoDraw from './lib/agentscript/TwoDraw'
+import Animator from './lib/agentscript/Animator'
 
 import { AgentscriptProps } from "./Agentscript.types";
 
 import "./Agentscript.scss";
 
 
-export default function Agentscript({
-	view, animation, Model
-}: AgentscriptProps
-) {
+const Agentscript: React.FC<AgentscriptProps> = ({
+	view, animation, Model, anim, setAnim
+}) => {
+	useEffect(() => {
+		const agentSetup = async () => {
+			const model = new Model()
+			await model.startup()
+			model.setup()
 
-	const agentSetup = async () => {
+			const { width, drawOptions } = view;
+			const twoDraw = new TwoDraw(model, {
+				div: 'modelDiv',
+				useSprites: true, // ant shape difficult to draw
+				width: width,
+				drawOptions,
+			})
 
-		// Define colors and colormaps
-		// const nestColor = Color.typedColor('yellow')
-		// const foodColor = Color.typedColor('blue')
-		// const nestColorMap = ColorMap.gradientColorMap(20, [
-		// 	'black',
-		// 	nestColor,
-		// ])
-		// const foodColorMap = ColorMap.gradientColorMap(20, [
-		// 	'black',
-		// 	foodColor,
-		// ])
-
-		const drawOptions = {
-			// patchesColor: p => {
-			// 	if (p.isNest) return nestColor
-			// 	if (p.isFood) return foodColor
-			// 	// return p.foodPheromone > p.nestPheromone
-			// 	//   ? foodColorMap.scaleColor(p.foodPheromone, 0, 1)
-			// 	//   : nestColorMap.scaleColor(p.nestPheromone, 0, 1)
-			// },
-			turtlesShape: 'bug',
-			turtlesSize: 3,
-			// turtlesColor: t => (t.carryingFood ? nestColor : foodColor),
+			const { step, fps } = animation;
+			const newAnim = new Animator(
+				() => {
+					model.step()
+					twoDraw.draw()
+				},
+				step,
+				fps
+			)
+			setAnim(newAnim)
+			console.log(anim)
 		}
-
-		const model = new Model()
-		await model.startup()
-		model.setup()
-
-
-		const { width } = view;
-		const twoDraw = new TwoDraw(model, {
-			div: 'modelDiv',
-			useSprites: true, // ant shape difficult to draw
-			width: width,
-			drawOptions,
-		})
-
-		const { step, fps } = animation;
-		const anim = new Animator(
-		  () => {
-		    model.step()
-		    twoDraw.draw()
-		  },
-		  step, 
-		  fps
-		)
-	}
-	agentSetup()
+		agentSetup()
+	}, [])
 
 	return (
 		<div id="modelDiv"></div>
 	)
 }
+
+export default Agentscript;

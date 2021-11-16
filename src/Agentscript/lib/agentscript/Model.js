@@ -1,4 +1,4 @@
-import Model from "./Model3D.js";
+import Model from "./Model2D.js";
 
 /**
  *  This is our default Model which simply re-exports Model3D

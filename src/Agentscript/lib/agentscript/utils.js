@@ -318,7 +318,7 @@ export function resizeCanvas(
 // It does not install a transform and assumes there is not one currently installed.
 // The World object can do that for AgentSets.
 export function setCanvasSize(can, width, height) {
-  if (can.width !== width || can.height != height) {
+  if (can.width !== width || can.height !== height) {
     can.width = width;
     can.height = height;
   }
@@ -460,7 +460,7 @@ export function timeit(f, runs = 1e5, name = "test") {
 // Each call bumps steps, current time, fps
 // Use:
 //    const perf = fps()
-//    while (perf.steps != 100) {}
+//    while (perf.steps !== 100) {}
 //        model.step()
 //        perf()
 //    }
@@ -1554,6 +1554,6 @@ export function convertArrayType(array, Type) {
 // isImage: obj => isType(obj, 'image')
 // isImageBitmap: obj => isType(obj, 'imagebitmap')
 // // Is undefined, null, bool, number, string, symbol
-// isPrimitive: obj => obj == null || 'object' != typeof obj
+// isPrimitive: obj => obj == null || 'object' !== typeof obj
 // Return array's type (Array or TypedArray variant)
 // typeName: obj => obj.constructor.name

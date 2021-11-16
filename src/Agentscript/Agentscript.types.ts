@@ -1,15 +1,17 @@
-interface IDrawOptions {
-  patchesColor?: string;
-  //   initPatches?: null;
-  turtlesColor?: string;
+import Animator from "./lib/agentscript/Animator";
+
+export interface IDrawOptions {
+  patchesColor?: string | ((p: any) => void);
+  initPatches?: (p: any) => void;
+  turtlesColor?: string | ((t: any) => void);
   turtlesStrokeColor?: string;
-  turtlesShape?: string;
-  turtlesSize?: number;
+  turtlesShape?: string | ((t: any) => void);
+  turtlesSize?: number | ((t: any) => void);
   linksColor?: string;
   linksWidth?: number;
   //   textProperty?: null;
-  textSize?: number;
-  textColor?: string;
+  textSize?: number | ((t: any) => void);
+  textColor?: string | ((t: any) => void);
   patchesMap?: string;
   turtlesMap?: string;
 }
@@ -29,4 +31,6 @@ export interface AgentscriptProps {
   view: IView;
   animation: IAnimation;
   Model: any;
+  anim: any;
+  setAnim: React.Dispatch<React.SetStateAction<Animator>>;
 }

@@ -51,7 +51,7 @@ export default class Turtle {
       while (this.links.length > 0) this.links[0].die();
     }
     // Remove me from patch.turtles cache if patch.turtles array exists
-    // if (this.patch.turtles != null) {
+    // if (this.patch.turtles !== null) {
     //     util.removeArrayItem(this.patch.turtles, this)
     // }
     if (this.patch && this.patch.turtles)
