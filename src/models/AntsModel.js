@@ -1,6 +1,21 @@
-import World from "../Agentscript/lib/agentscript/World";
-import Model from "../Agentscript/lib/agentscript/Model";
-import * as util from "../Agentscript/lib/agentscript/utils";
+// import * as util from "../Agentscript/lib/agentscript/utils";
+import { Model, World } from "ts-agent";
+
+/**
+ * Returns a random float in [min, max)
+ *
+ * @param {number} min The min float to return
+ * @param {number} max The max float to return
+ * @return {number} a float in [min, max)
+ */
+const randomFloat2 = (min, max) => min + Math.random() * (max - min);
+
+/**
+ * Return a random float centered around r, in [-r/2, r/2)
+ * @param {number} r The center float
+ * @return {number} a float in [-r/2, r/2)
+ */
+const randomCentered = (r) => randomFloat2(-r / 2, r / 2);
 
 export default class AntsModel extends Model {
   population = 255;
@@ -103,7 +118,7 @@ export default class AntsModel extends Model {
     }
 
     // wiggleAngleの範囲内（今回は30度、-15から15度）でランダムに回転する
-    t.rotate(util.randomCentered(this.wiggleAngle));
+    t.rotate(randomCentered(this.wiggleAngle));
     // this.speedの距離を進む
     t.forward(this.speed);
   }

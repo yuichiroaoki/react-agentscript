@@ -1,7 +1,7 @@
 // Generated with util/create-component.js
 import React from "react";
 import Agentscript from "./Agentscript";
-import Animator from './lib/agentscript/Animator'
+import { Animator, TwoDraw } from "ts-agent";
 import Model from '../models/AntsModel'
 
 export default {
@@ -9,7 +9,14 @@ export default {
 };
 
 export const WithBar = () => {
-  const [anim, setAnim] = React.useState<Animator | undefined>();
+  const [model, setModel] = React.useState<typeof Model | undefined>();
+  const [twoDraw, setTwoDraw] = React.useState<typeof TwoDraw | undefined>();
+  const [anim, setAnim] = React.useState<typeof Animator | undefined>();
+  const reset = () => {
+    if(anim) {
+      anim.reset();
+    }
+  }
   return (
     <>
     <Agentscript
@@ -26,13 +33,14 @@ export const WithBar = () => {
       }
       animation={{
         step: 50,
-        fps: 30,
+        fps: 10,
       }}
       Model={Model}
-      anim={anim}
+      setModel={setModel}
+      setTwoDraw={setTwoDraw}
       setAnim={setAnim}
     />
-    <input type="button" value="reset" onClick={() => {anim.reset(); }}/>
+    <input type="button" value="reset" onClick={reset}/>
     <input type="button" value="toggle" onClick={() => {anim.toggle(); }}/>
     <input type="button" value="once" onClick={() => {anim.once(); }}/>
     </>

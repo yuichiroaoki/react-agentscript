@@ -1,21 +1,20 @@
 import React, { useEffect } from "react";
 
-import TwoDraw from './lib/agentscript/TwoDraw'
-import Animator from './lib/agentscript/Animator'
-
+import { Animator, TwoDraw } from "ts-agent";
 import { AgentscriptProps } from "./Agentscript.types";
 
 import "./Agentscript.scss";
 
 
 const Agentscript: React.FC<AgentscriptProps> = ({
-	view, animation, Model, anim, setAnim
+	view, animation, Model, setModel, setTwoDraw, setAnim
 }) => {
 	useEffect(() => {
 		const agentSetup = async () => {
 			const model = new Model()
 			await model.startup()
 			model.setup()
+			setModel(model)
 
 			const { width, drawOptions } = view;
 			const twoDraw = new TwoDraw(model, {
@@ -35,7 +34,6 @@ const Agentscript: React.FC<AgentscriptProps> = ({
 				fps
 			)
 			setAnim(newAnim)
-			console.log(anim)
 		}
 		agentSetup()
 	}, [])
