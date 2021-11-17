@@ -7,13 +7,14 @@ import "./Agentscript.scss";
 
 
 const Agentscript: React.FC<AgentscriptProps> = ({
-	view, animation, Model, anim, setAnim
+	view, animation, Model, setModel, setTwoDraw, setAnim
 }) => {
 	useEffect(() => {
 		const agentSetup = async () => {
 			const model = new Model()
 			await model.startup()
 			model.setup()
+			setModel(model)
 
 			const { width, drawOptions } = view;
 			const twoDraw = new TwoDraw(model, {
@@ -33,7 +34,6 @@ const Agentscript: React.FC<AgentscriptProps> = ({
 				fps
 			)
 			setAnim(newAnim)
-			console.log(anim)
 		}
 		agentSetup()
 	}, [])

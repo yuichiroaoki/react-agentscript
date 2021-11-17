@@ -1,4 +1,4 @@
-import { Animator } from "ts-agent";
+import { Model, TwoDraw, Animator } from "ts-agent";
 
 export interface IDrawOptions {
   patchesColor?: string | ((p: any) => void);
@@ -31,6 +31,7 @@ export interface AgentscriptProps {
   view: IView;
   animation: IAnimation;
   Model: any;
-  anim: any;
+  setModel: React.Dispatch<React.SetStateAction<Model>>;
+  setTwoDraw: React.Dispatch<React.SetStateAction<TwoDraw>>;
   setAnim: React.Dispatch<React.SetStateAction<Animator>>;
 }
