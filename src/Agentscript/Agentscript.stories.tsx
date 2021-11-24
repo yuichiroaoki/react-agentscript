@@ -1,5 +1,5 @@
 // Generated with util/create-component.js
-import React from "react";
+import React, { useState } from "react";
 import Agentscript from "./Agentscript";
 import { Animator, TwoDraw } from "ts-agent";
 import Model from '../models/AntsModel'
@@ -9,9 +9,9 @@ export default {
 };
 
 export const WithBar = () => {
-  const [model, setModel] = React.useState<any | undefined>();
-  const [twoDraw, setTwoDraw] = React.useState<typeof TwoDraw | undefined>();
-  const [anim, setAnim] = React.useState<any | undefined>();
+  const [model, setModel] = useState<any | undefined>();
+  const [twoDraw, setTwoDraw] = useState<typeof TwoDraw | undefined>();
+  const [anim, setAnim] = useState<any | undefined>();
 
   if (model) {
   console.log(model.patches)
