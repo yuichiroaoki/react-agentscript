@@ -18,7 +18,6 @@ export interface IDrawOptions {
 
 interface IView {
   width: number;
-  height: number;
   drawOptions?: IDrawOptions;
 }
 
@@ -32,6 +31,5 @@ export interface AgentscriptProps {
   animation: IAnimation;
   Model: any;
   setModel: React.Dispatch<React.SetStateAction<Model>>;
-  setTwoDraw: React.Dispatch<React.SetStateAction<TwoDraw>>;
   setAnim: React.Dispatch<React.SetStateAction<Animator>>;
 }
