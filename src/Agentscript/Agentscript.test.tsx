@@ -10,7 +10,7 @@ import Model from '../models/AntsModel'
 describe("Test Component", () => {
   let props: AgentscriptProps;
   let view = {
-    width: 800, height: 600,
+    width: 800,
     drawOptions: {
       turtlesColor: "white",
       turtlesSize: 5,
@@ -24,7 +24,6 @@ describe("Test Component", () => {
   }
   const TestWithBar = () => {
     const [model, setModel] = React.useState<typeof Model | undefined>();
-    const [twoDraw, setTwoDraw] = React.useState<typeof TwoDraw | undefined>();
     const [anim, setAnim] = React.useState<typeof Animator | undefined>();
     const reset = () => {
       if (anim) {
@@ -38,7 +37,6 @@ describe("Test Component", () => {
           animation={animation}
           Model={Model}
           setModel={setModel}
-          setTwoDraw={setTwoDraw}
           setAnim={setAnim}
         />
         <input type="button" value="reset" onClick={reset} />

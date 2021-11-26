@@ -7,7 +7,7 @@ import "./Agentscript.scss";
 
 
 const Agentscript: React.FC<AgentscriptProps> = ({
-	view, animation, Model, setModel, setTwoDraw, setAnim
+	view, animation, Model, setModel, setAnim
 }) => {
 	useEffect(() => {
 		const agentSetup = async () => {
@@ -19,7 +19,6 @@ const Agentscript: React.FC<AgentscriptProps> = ({
 			const { width, drawOptions } = view;
 			const twoDraw = new TwoDraw(model, {
 				div: 'modelDiv',
-				useSprites: true, // ant shape difficult to draw
 				width: width,
 				drawOptions,
 			})

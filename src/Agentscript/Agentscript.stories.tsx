@@ -1,7 +1,6 @@
 // Generated with util/create-component.js
 import React, { useState } from "react";
 import Agentscript from "./Agentscript";
-import { Animator, TwoDraw } from "ts-agent";
 import Model from '../models/AntsModel'
 
 export default {
@@ -10,7 +9,6 @@ export default {
 
 export const WithBar = () => {
   const [model, setModel] = useState<any | undefined>();
-  const [twoDraw, setTwoDraw] = useState<typeof TwoDraw | undefined>();
   const [anim, setAnim] = useState<any | undefined>();
 
   if (model) {
@@ -27,7 +25,7 @@ export const WithBar = () => {
       <Agentscript
         view={
           {
-            width: 800, height: 600,
+            width: 800,
             drawOptions: {
                 turtlesColor: t => (t.carryingFood ? "red" : "blue"),
                 patchesColor: p => {
@@ -46,7 +44,6 @@ export const WithBar = () => {
         }}
         Model={Model}
         setModel={setModel}
-        setTwoDraw={setTwoDraw}
         setAnim={setAnim}
       />
       <input type="button" value="reset" onClick={reset} />
