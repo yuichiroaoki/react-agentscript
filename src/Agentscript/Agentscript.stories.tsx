@@ -15,11 +15,6 @@ export const WithBar = () => {
   console.log(model.patches)
   }
 
-  const reset = () => {
-    if (anim) {
-      anim.reset();
-    }
-  }
   return (
     <>
       <Agentscript
@@ -46,7 +41,6 @@ export const WithBar = () => {
         setModel={setModel}
         setAnim={setAnim}
       />
-      <input type="button" value="reset" onClick={reset} />
       <input type="button" value="toggle" onClick={() => { anim.toggle(); }} />
       <input type="button" value="once" onClick={() => { anim.once(); }} />
     </>
