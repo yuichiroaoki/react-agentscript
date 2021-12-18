@@ -40,6 +40,7 @@ export const WithBar = () => {
         setAnim={setAnim}
       />
       <button onClick={() => setReset(!reset)} >reset</button>
+      <input type="number" value={step} onChange={e => setStep(Number(e.target.value))} />
       <input type="number" value={fps} onChange={e => setFps(Number(e.target.value))} />
       <input type="button" value="toggle" onClick={() => { anim.toggle(); }} />
       <input type="button" value="once" onClick={() => { anim.once(); }} />

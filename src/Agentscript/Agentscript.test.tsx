@@ -1,5 +1,5 @@
 // Generated with util/create-component.js
-import React from "react";
+import React, { useState } from "react";
 import { render } from "@testing-library/react";
 
 import { Animator, TwoDraw } from "ts-agent";
@@ -24,20 +24,17 @@ describe("Test Component", () => {
   }
   const TestWithBar = () => {
     const [anim, setAnim] = React.useState<typeof Animator | undefined>();
-    const reset = () => {
-      if (anim) {
-        anim.reset();
-      }
-    }
+    const [reset, setReset] = useState<boolean>(false);
     return (
       <>
         <Agentscript
           view={view}
           animation={animation}
           Model={Model}
+          reset={reset}
           setAnim={setAnim}
         />
-        <input type="button" value="reset" onClick={reset} />
+        <button onClick={() => setReset(!reset)} >reset</button>
         <input type="button" value="toggle" onClick={() => { anim.toggle(); }} />
         <input type="button" value="once" onClick={() => { anim.once(); }} />
       </>
