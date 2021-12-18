@@ -1,13 +1,52 @@
 # React Agentscript
 
-[![Build status](https://badge.buildkite.com/90ff98db996bb137c5be1bdce666c4b1ce68a25b17af0a6a04.svg?branch=master)](https://buildkite.com/harvey/react-component-library)
+![build](https://github.com/yuichiroaoki/react-agentscript/actions/workflows/build.yaml/badge.svg)
+
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-An agentscript react component 
+An agentscript react component
 
 ## Installation
+
 ```bash
 npm install react-agentscript ts-agent
+```
+
+## Usage
+
+```typescript
+import React, { useState } from "react";
+import Agentscript from "./Agentscript";
+import Model from "../models/AntsModel";
+
+export const AgentscriptComponent = () => {
+  const [anim, setAnim] = useState<any | undefined>();
+  const [reset, setReset] = useState<boolean>(false);
+  return (
+    <Agentscript
+      view={{
+        width: 800,
+        drawOptions: {
+          turtlesColor: (t) => (t.carryingFood ? "red" : "blue"),
+          patchesColor: (p) => {
+            if (p.isNest) return "blue";
+            if (p.isFood) return "red";
+            return "black";
+          },
+          turtlesSize: 5,
+          turtlesShape: "bug",
+        },
+      }}
+      animation={{
+        step: 300,
+        fps: 10,
+      }}
+      reset={reset}
+      Model={Model}
+      setAnim={setAnim}
+    />
+  );
+};
 ```
 
 ## Development
