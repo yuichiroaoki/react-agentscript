@@ -7,14 +7,14 @@ import "./Agentscript.scss";
 
 
 const Agentscript: React.FC<AgentscriptProps> = ({
-	view, animation, Model, setModel, setAnim
+	view, animation, Model, setAnim
 }) => {
 	useEffect(() => {
 		const agentSetup = async () => {
-			const model = new Model()
+			document.querySelector('#modelDiv').innerHTML = ''
+			const model = new Model(animation.fps, animation.step)
 			await model.startup()
 			model.setup()
-			setModel(model)
 
 			const { width, drawOptions } = view;
 			const twoDraw = new TwoDraw(model, {
@@ -35,7 +35,7 @@ const Agentscript: React.FC<AgentscriptProps> = ({
 			setAnim(newAnim)
 		}
 		agentSetup()
-	}, [])
+	}, [animation.step, animation.fps])
 
 	return (
 		<div id="modelDiv"></div>

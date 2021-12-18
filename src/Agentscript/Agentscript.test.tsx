@@ -23,7 +23,6 @@ describe("Test Component", () => {
     fps: 30,
   }
   const TestWithBar = () => {
-    const [model, setModel] = React.useState<typeof Model | undefined>();
     const [anim, setAnim] = React.useState<typeof Animator | undefined>();
     const reset = () => {
       if (anim) {
@@ -36,7 +35,6 @@ describe("Test Component", () => {
           view={view}
           animation={animation}
           Model={Model}
-          setModel={setModel}
           setAnim={setAnim}
         />
         <input type="button" value="reset" onClick={reset} />
