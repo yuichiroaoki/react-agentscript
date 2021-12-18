@@ -1,7 +1,6 @@
 # React Agentscript
 
 ![build](https://github.com/yuichiroaoki/react-agentscript/actions/workflows/build.yaml/badge.svg)
-
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 An agentscript react component
@@ -125,59 +124,6 @@ which will install the local component library as a dependency in `test-app`. It
 
 Your components can then be imported and used in that project.
 
-## Publishing
-
-### Hosting via NPM
-
-First, make sure you have an NPM account and are [logged into NPM using the `npm login` command.](https://docs.npmjs.com/creating-a-new-npm-user-account)
-
-Then update the `name` field in `package.json` to reflect your NPM package name in your private or public NPM registry. Then run:
-
-```
-npm publish
-```
-
-The `"prepublishOnly": "npm run build"` script in `package.json` will execute before publish occurs, ensuring the `build/` directory and the compiled component library exist.
-
-### Hosting via GitHub
-
-I recommend you host the component library using NPM. However, if you don't want to use NPM, you can use GitHub to host it instead.
-
-You'll need to remove `build/` from `.gitignore`, build the component library (`npm run build`), add, commit and push the contents of `build`. [See this branch for an example.](https://github.com/HarveyD/react-component-library/tree/host-via-github)
-
-You can then install your library into other projects by running:
-
-```
-npm i --save git+https://github.com/HarveyD/react-component-library.git#branch-name
-```
-
-OR
-
-```
-npm i --save github:harveyd/react-component-library#branch-name
-```
-
-## Usage
-
-Let's say you created a public NPM package called `harvey-component-library` with the `TestComponent` component created in this repository.
-
-Usage of the component (after the library installed as a dependency into another project) will be:
-
-```TSX
-import React from "react";
-import { TestComponent } from "harvey-component-library";
-
-const App = () => (
-  <div className="app-container">
-    <h1>Hello I'm consuming the component library</h1>
-    <TestComponent theme="primary" />
-  </div>
-);
-
-export default App;
-```
-
-[Check out this Code Sandbox for a live example.](https://codesandbox.io/s/harvey-component-library-example-y2b60?file=/src/App.js)
 
 ### Using Component Library SASS Variables
 
