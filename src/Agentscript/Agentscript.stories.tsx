@@ -8,12 +8,10 @@ export default {
 };
 
 export const WithBar = () => {
-  const [model, setModel] = useState<any | undefined>();
   const [anim, setAnim] = useState<any | undefined>();
-
-  if (model) {
-  console.log(model.patches)
-  }
+  const [step, setStep] = useState<number>(40);
+  const [fps, setFps] = useState<number>(10);
+  const [reset, setReset] = useState<boolean>(false);
 
   return (
     <>
@@ -34,13 +32,16 @@ export const WithBar = () => {
           }
         }
         animation={{
-          step: 300,
-          fps: 30,
+          step: step,
+          fps: fps,
         }}
+        reset={reset}
         Model={Model}
-        setModel={setModel}
         setAnim={setAnim}
       />
+      <button onClick={() => setReset(!reset)} >reset</button>
+      <input type="number" value={step} onChange={e => setStep(Number(e.target.value))} />
+      <input type="number" value={fps} onChange={e => setFps(Number(e.target.value))} />
       <input type="button" value="toggle" onClick={() => { anim.toggle(); }} />
       <input type="button" value="once" onClick={() => { anim.once(); }} />
     </>

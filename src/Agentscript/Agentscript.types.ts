@@ -30,6 +30,6 @@ export interface AgentscriptProps {
   view: IView;
   animation: IAnimation;
   Model: any;
-  setModel: React.Dispatch<React.SetStateAction<Model>>;
   setAnim: React.Dispatch<React.SetStateAction<Animator>>;
+  reset: boolean;
 }
