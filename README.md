@@ -21,6 +21,16 @@ import Model from "../models/AntsModel";
 export const AgentscriptComponent = () => {
   const [anim, setAnim] = useState<any | undefined>();
   const [reset, setReset] = useState<boolean>(false);
+  const [model, setModel] = useState<any | undefined>();
+
+  useEffect(() => {
+    updateModel();
+  }, []);
+
+  const updateModel = () => {
+    const newModel = new Model();
+    setModel(newModel);
+  };
   return (
     <Agentscript
       view={{
@@ -37,11 +47,11 @@ export const AgentscriptComponent = () => {
         },
       }}
       animation={{
-        step: 300,
-        fps: 10,
+        step: step,
+        fps: fps,
       }}
       reset={reset}
-      Model={Model}
+      model={model}
       setAnim={setAnim}
     />
   );
@@ -123,7 +133,6 @@ which will install the local component library as a dependency in `test-app`. It
 ```
 
 Your components can then be imported and used in that project.
-
 
 ### Using Component Library SASS Variables
 
