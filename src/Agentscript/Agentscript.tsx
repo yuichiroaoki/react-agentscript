@@ -7,32 +7,33 @@ import "./Agentscript.scss";
 
 
 const Agentscript: React.FC<AgentscriptProps> = ({
-	view, animation, Model, setAnim, reset
+	view, animation, model, setAnim, reset
 }) => {
 	useEffect(() => {
 		const agentSetup = async () => {
-			document.querySelector('#modelDiv').innerHTML = ''
-			const model = new Model()
-			await model.startup()
-			model.setup()
+			if (model) {
+				document.querySelector('#modelDiv').innerHTML = ''
+				await model.startup()
+				model.setup()
 
-			const { width, drawOptions } = view;
-			const twoDraw = new TwoDraw(model, {
-				div: 'modelDiv',
-				width: width,
-				drawOptions,
-			})
+				const { width, drawOptions } = view;
+				const twoDraw = new TwoDraw(model, {
+					div: 'modelDiv',
+					width: width,
+					drawOptions,
+				})
 
-			const { step, fps } = animation;
-			const newAnim = new Animator(
-				() => {
-					model.step()
-					twoDraw.draw()
-				},
-				step,
-				fps
-			)
-			setAnim(newAnim)
+				const { step, fps } = animation;
+				const newAnim = new Animator(
+					() => {
+						model.step()
+						twoDraw.draw()
+					},
+					step,
+					fps
+				)
+				setAnim(newAnim)
+			}
 		}
 		agentSetup()
 	}, [animation.step, animation.fps, reset])

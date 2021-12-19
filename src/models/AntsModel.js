@@ -29,6 +29,7 @@ export default class AntsModel extends Model {
   nestX = (world) => world.maxX - 6;
   nestY = () => 0;
 
+  token = "";
   // ======================
 
   constructor(worldOptions = World.defaultOptions(40)) {

@@ -29,7 +29,7 @@ interface IAnimation {
 export interface AgentscriptProps {
   view: IView;
   animation: IAnimation;
-  Model: any;
+  model: any;
   setAnim: React.Dispatch<React.SetStateAction<Animator>>;
   reset: boolean;
 }
