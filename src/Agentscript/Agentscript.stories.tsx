@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Agentscript from "./Agentscript";
 import Model from '../models/AntsModel'
 import { Settings } from '../components/Settings'
+import { Color } from "ts-agent"
 
 export default {
   title: "Agentscript"
@@ -40,17 +41,18 @@ export const WithBar = () => {
           {
             width: 800,
             drawOptions: {
-              turtlesColor: t => (t.carryingFood ? "red" : "blue"),
+              turtlesColor: t => (t.carryingFood ? Color.typedColor(0, 0, 200) : Color.typedColor(0, 200, 0)),
               patchesColor: p => {
-                if (p.isNest) return "blue"
-                if (p.isFood) return "red"
-                return "black"
+                if (p.isNest) return Color.typedColor(0, 200, 0)
+                if (p.isFood) return Color.typedColor(0, 0, 200)
+                return Color.typedColor(0, 0, 0)
               },
               turtlesSize: 5,
               turtlesShape: "bug"
             }
           }
         }
+        anim={anim}
         animation={{
           step: step,
           fps: fps,

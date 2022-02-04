@@ -7,12 +7,14 @@ import "./Agentscript.scss";
 
 
 const Agentscript: React.FC<AgentscriptProps> = ({
-	view, animation, model, setAnim, reset
+	view, animation, model, setAnim, reset, anim
 }) => {
 	useEffect(() => {
 		const agentSetup = async () => {
 			if (model) {
 				document.querySelector('#modelDiv').innerHTML = ''
+				if (anim) anim.stop()
+				setAnim(undefined)
 				await model.startup()
 				model.setup()
 
