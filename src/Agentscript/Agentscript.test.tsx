@@ -1,10 +1,10 @@
 // Generated with util/create-component.js
 import React, { useEffect, useState } from "react";
 import { render } from "@testing-library/react";
-import { Animator } from "ts-agent";
 import Agentscript from "./Agentscript";
 import Model from '../models/AntsModel'
 import { Settings } from "../components/Settings";
+import { Animator, Model as AgentModel } from "ts-agent";
 
 describe("Test Component", () => {
   let view = {
@@ -21,8 +21,8 @@ describe("Test Component", () => {
     fps: 30,
   }
   const TestWithBar = () => {
-    const [anim, setAnim] = useState<any | undefined>();
-    const [model, setModel] = useState<any | undefined>();
+    const [anim, setAnim] = useState<Animator | undefined>();
+    const [model, setModel] = useState<AgentModel | undefined>();
     const [step, setStep] = useState<number>(10);
     const [fps, setFps] = useState<number>(10);
     const [reset, setReset] = useState<boolean>(false);
@@ -52,6 +52,7 @@ describe("Test Component", () => {
           animation={animation}
           model={model}
           reset={reset}
+          anim={anim}
           setAnim={setAnim}
         />
         <button onClick={handleReset}>reset</button>
