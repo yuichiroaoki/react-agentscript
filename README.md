@@ -1,6 +1,10 @@
 # React Agentscript
 
 ![build](https://github.com/yuichiroaoki/react-agentscript/actions/workflows/build.yaml/badge.svg)
+![test](https://github.com/yuichiroaoki/react-agentscript/actions/workflows/test.yaml/badge.svg)
+![codeql](https://github.com/yuichiroaoki/react-agentscript/actions/workflows/codeql-analysis.yaml/badge.svg)
+![release](https://github.com/yuichiroaoki/react-agentscript/actions/workflows/release.yaml/badge.svg)
+
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 An agentscript react component
