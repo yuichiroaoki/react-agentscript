@@ -78,7 +78,6 @@ export default class AntsModel extends Model {
   }
 
   step() {
-    console.log(this.ticks);
     this.updateTurtles();
     this.updatePatches();
   }

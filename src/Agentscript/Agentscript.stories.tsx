@@ -32,7 +32,7 @@ export const WithBar = () => {
   }
 
   if (!model) {
-      return <div>loading</div>
+    return <div>loading</div>
   }
   return (
     <>
@@ -47,6 +47,9 @@ export const WithBar = () => {
                 if (p.isFood) return Color.typedColor(0, 0, 200)
                 return Color.typedColor(0, 0, 0)
               },
+              textProperty: "id",
+              textSize: 4,
+              textColor: Color.typedColor(200, 200, 200),
               turtlesSize: 5,
               turtlesShape: "bug"
             }

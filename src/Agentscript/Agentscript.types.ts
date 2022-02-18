@@ -9,7 +9,7 @@ export interface IDrawOptions {
   turtlesSize?: number | ((t: any) => void);
   linksColor?: string;
   linksWidth?: number;
-  //   textProperty?: null;
+  textProperty?: null | string;
   textSize?: number | ((t: any) => void);
   textColor?: string | ((t: any) => void);
   patchesMap?: string;
