@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
-import { Animator, TwoDraw } from "ts-agent";
+import { TwoDraw } from "ts-agent";
+import Animator from "./Animator"
+// import { Animator, TwoDraw } from "ts-agent";
 import { AgentscriptProps } from "./Agentscript.types";
 
 import "./Agentscript.scss";
@@ -27,12 +29,10 @@ const Agentscript: React.FC<AgentscriptProps> = ({
 
 				const { step, fps } = animation;
 				const newAnim = new Animator(
-					() => {
-						model.step()
-						twoDraw.draw()
-					},
+					model,
+					twoDraw,
 					step,
-					fps
+					fps,
 				)
 				setAnim(newAnim)
 			}
