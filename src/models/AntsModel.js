@@ -36,7 +36,7 @@ export default class AntsModel extends Model {
     super(worldOptions);
   }
 
-  setup() {
+  async setup() {
     this.turtles.setDefault("atEdge", "bounce");
     this.setupPatches();
     this.setupTurtles();

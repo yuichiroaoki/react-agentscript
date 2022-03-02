@@ -18,7 +18,7 @@ const Agentscript: React.FC<AgentscriptProps> = ({
 				if (anim) anim.stop()
 				setAnim(undefined)
 				await model.startup()
-				model.setup()
+				await model.setup()
 
 				const { width, drawOptions } = view;
 				const twoDraw = new TwoDraw(model, {
